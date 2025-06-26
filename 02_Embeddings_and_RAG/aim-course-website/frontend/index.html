@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AIM Course Assignment 2: Building a Production-Ready RAG System with PDF Support, Multiple Distance Metrics, and Metadata Filtering">
-    <meta name="author" content="Todd Deshane">
+    <meta name="author" content="Todd (ToddLLM) Deshane, Ph.D.">
     
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,17 +12,17 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Preload critical CSS -->
-    <link rel="preload" href="../static/css/style.css" as="style">
+    <link rel="preload" href="../static/css/style.css?v=1eb53d56" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     
     <!-- Stylesheets -->
     <title>AIM Course - Assignment 2: Embeddings and RAG</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css?v=1eb53d56">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     
     <!-- Preload JavaScript -->
-    <link rel="preload" href="../static/js/main.js" as="script">
+    <link rel="preload" href="../static/js/main.js?v=1eb53d56" as="script">
 </head>
 <body>
     <!-- Navigation -->
@@ -47,9 +47,15 @@
             
             <!-- Audio Walkthrough Player -->
             <div class="audio-player">
-                <h3>🎧 2-Minute Audio Walkthrough</h3>
-                <audio controls>
-                    <source src="../static/audio/assignment2_walkthrough.mp3" type="audio/mpeg">
+                <div class="audio-header">
+                    <img src="../static/images/avatar.jpeg" alt="Todd (ToddLLM) Deshane, Ph.D." class="avatar">
+                    <div>
+                        <h3>🎧 Audio Walkthrough by Todd (ToddLLM) Deshane, Ph.D.</h3>
+                        <p class="audio-duration">Duration: 1.4 minutes</p>
+                    </div>
+                </div>
+                <audio controls preload="metadata">
+                    <source src="../static/audio/assignment2_walkthrough.mp3?v=1eb53d56" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
                 <p class="audio-note">Listen to a concise explanation of the assignment and enhancements</p>
@@ -314,7 +320,7 @@ Let's approach this step by step:
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>AIM Course Assignment 2 | Created by Todd Deshane | 2024</p>
+            <p>AIM Course Assignment 2 | Created by Todd (ToddLLM) Deshane, Ph.D. | 2025</p>
             <p>Built with OpenAI API, AWS Lambda, and lots of ☕</p>
         </div>
     </footer>
@@ -323,6 +329,6 @@ Let's approach this step by step:
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../static/js/main.js"></script>
+    <script src="../static/js/main.js?v=1eb53d56"></script>
 </body>
 </html>

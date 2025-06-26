@@ -1,7 +1,7 @@
 // AIM Course Website JavaScript
 
 // Lambda API endpoint (update this with your actual endpoint)
-const API_ENDPOINT = 'https://your-api-gateway-url.execute-api.us-east-1.amazonaws.com/prod';
+const API_ENDPOINT = 'https://i074bcdyb2.execute-api.us-east-1.amazonaws.com/';
 
 // Sample queries for demo
 const sampleQueries = [

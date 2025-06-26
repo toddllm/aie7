@@ -131,3 +131,7 @@ To add new assignments:
 ## 📄 License
 
 This project is part of the AI Maker Space course curriculum.
+
+## 👨‍💻 Author
+
+Todd (ToddLLM) Deshane, Ph.D. - 2025

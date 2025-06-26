@@ -105,21 +105,62 @@ body {
     padding: 2rem;
     margin-top: 2rem;
     display: inline-block;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.audio-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.audio-header > div {
+    text-align: left;
 }
 
 .audio-player h3 {
-    margin-bottom: 1rem;
+    margin: 0 0 0.25rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.audio-duration {
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.9;
 }
 
 .audio-player audio {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .audio-note {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+    .audio-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .audio-header > div {
+        text-align: center;
+    }
 }
 
 /* Sections */

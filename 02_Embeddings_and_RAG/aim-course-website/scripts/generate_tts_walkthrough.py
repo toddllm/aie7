@@ -54,9 +54,9 @@ def generate_audio_walkthrough():
     try:
         response = client.audio.speech.create(
             model="tts-1",
-            voice="alloy",  # Professional, clear voice
+            voice="onyx",  # Male voice (deep and engaging)
             input=WALKTHROUGH_SCRIPT,
-            speed=1.1  # Slightly faster for conciseness
+            speed=1.0  # Normal speed for clarity
         )
         
         # Save audio file
