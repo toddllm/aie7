@@ -3,6 +3,28 @@
 // Lambda API endpoint (update this with your actual endpoint)
 const API_ENDPOINT = 'https://i074bcdyb2.execute-api.us-east-1.amazonaws.com/';
 
+// Theme management
+function initTheme() {
+    // Check for saved theme preference or default to 'dark'
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+    const icon = document.getElementById('theme-icon');
+    icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
 // Sample queries for demo
 const sampleQueries = [
     "What is the Michael Eisner Memorial Weak Executive Problem?",
@@ -14,6 +36,7 @@ const sampleQueries = [
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
     loadSampleQueries();
     setupMetricsChart();
     
@@ -164,6 +187,8 @@ function setupMetricsChart() {
     const ctx = document.getElementById('metricsChart');
     if (!ctx) return;
     
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -172,8 +197,8 @@ function setupMetricsChart() {
                 label: 'Similarity Score',
                 data: [0.94, 0.89, 0.85, 0.93, 0.91],
                 backgroundColor: [
-                    'rgba(37, 99, 235, 0.8)',
-                    'rgba(124, 58, 237, 0.8)',
+                    'rgba(59, 130, 246, 0.8)',
+                    'rgba(139, 92, 246, 0.8)',
                     'rgba(16, 185, 129, 0.8)',
                     'rgba(245, 158, 11, 0.8)',
                     'rgba(239, 68, 68, 0.8)'
@@ -189,13 +214,28 @@ function setupMetricsChart() {
                 },
                 title: {
                     display: true,
-                    text: 'Distance Metric Comparison on Same Query'
+                    text: 'Distance Metric Comparison on Same Query',
+                    color: isDark ? '#f1f5f9' : '#1f2937'
                 }
             },
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 1
+                    max: 1,
+                    ticks: {
+                        color: isDark ? '#cbd5e1' : '#6b7280'
+                    },
+                    grid: {
+                        color: isDark ? '#334155' : '#e5e7eb'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: isDark ? '#cbd5e1' : '#6b7280'
+                    },
+                    grid: {
+                        color: isDark ? '#334155' : '#e5e7eb'
+                    }
                 }
             }
         }

@@ -12,19 +12,20 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Preload critical CSS -->
-    <link rel="preload" href="../static/css/style.css?v=1eb53d56" as="style">
+    <link rel="preload" href="../static/css/style.css?v=955f0fb6" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     
     <!-- Stylesheets -->
     <title>AIM Course - Assignment 2: Embeddings and RAG</title>
-    <link rel="stylesheet" href="../static/css/style.css?v=1eb53d56">
+    <link rel="stylesheet" href="../static/css/style.css?v=955f0fb6">
+    <link rel="stylesheet" href="../static/css/dark-mode.css?v=955f0fb6">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     
     <!-- Preload JavaScript -->
-    <link rel="preload" href="../static/js/main.js?v=1eb53d56" as="script">
+    <link rel="preload" href="../static/js/main.js?v=955f0fb6" as="script">
 </head>
-<body>
+<body data-theme="dark">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -55,7 +56,7 @@
                     </div>
                 </div>
                 <audio controls preload="metadata">
-                    <source src="../static/audio/assignment2_walkthrough.mp3?v=1eb53d56" type="audio/mpeg">
+                    <source src="../static/audio/assignment2_walkthrough.mp3?v=955f0fb6" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
                 <p class="audio-note">Listen to a concise explanation of the assignment and enhancements</p>
@@ -325,10 +326,15 @@ Let's approach this step by step:
         </div>
     </footer>
 
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <span id="theme-icon">☀️</span>
+    </button>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../static/js/main.js?v=1eb53d56"></script>
+    <script src="../static/js/main.js?v=955f0fb6"></script>
 </body>
 </html>
