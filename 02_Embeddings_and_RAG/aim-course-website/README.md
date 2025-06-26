@@ -29,19 +29,38 @@ AWS Secrets Manager (OpenAI Key)
 - AWS CLI configured with appropriate credentials
 - Python 3.9+
 - OpenAI API key in `.env` file
+- jq (for JSON processing in update script)
 
-### Quick Deploy
+### Deploy with CloudFront HTTPS
 ```bash
-./deploy.sh
+./deploy_cloudfront.sh
 ```
 
-This script will:
+This enhanced script will:
 1. Create AWS Secret for OpenAI API key
 2. Deploy Lambda function with RAG logic
-3. Set up API Gateway
-4. Create S3 bucket for static hosting
+3. Set up API Gateway with CORS
+4. Create S3 bucket with CloudFront-only access
 5. Generate TTS audio walkthrough
-6. Upload all website files
+6. Create CloudFront distribution with HTTPS
+7. Implement aggressive cache busting
+8. Invalidate CloudFront cache on deploy
+
+### Update Content
+```bash
+./update_content.sh
+```
+
+This script:
+- Updates cache bust hashes
+- Syncs new content to S3
+- Creates CloudFront invalidation
+- Ensures all users see latest version
+
+### Original S3-only Deploy (HTTP)
+```bash
+./deploy.sh  # Original script for S3 static hosting
+```
 
 ## 📁 Project Structure
 

@@ -1,0 +1,30 @@
+# Deployment artifacts
+deployment-info.json
+lambda_deployment.zip
+*.bak
+
+# AWS CLI artifacts
+trust-policy.json
+bucket-policy.json
+cloudfront-config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

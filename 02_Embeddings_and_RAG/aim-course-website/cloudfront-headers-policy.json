@@ -1,0 +1,42 @@
+{
+    "Comment": "Security headers for AIM Course Website",
+    "Name": "aim-course-security-headers",
+    "SecurityHeadersConfig": {
+        "ContentTypeOptions": {
+            "Override": true
+        },
+        "FrameOptions": {
+            "FrameOption": "DENY",
+            "Override": true
+        },
+        "ReferrerPolicy": {
+            "ReferrerPolicy": "strict-origin-when-cross-origin",
+            "Override": true
+        },
+        "StrictTransportSecurity": {
+            "AccessControlMaxAgeSec": 63072000,
+            "IncludeSubdomains": true,
+            "Override": true,
+            "Preload": true
+        },
+        "XSSProtection": {
+            "ModeBlock": true,
+            "Override": true,
+            "Protection": true
+        }
+    },
+    "CustomHeadersConfig": {
+        "Items": [
+            {
+                "Header": "Cache-Control",
+                "Value": "public, max-age=3600, must-revalidate",
+                "Override": false
+            },
+            {
+                "Header": "X-Content-Type-Options",
+                "Value": "nosniff",
+                "Override": true
+            }
+        ]
+    }
+}
