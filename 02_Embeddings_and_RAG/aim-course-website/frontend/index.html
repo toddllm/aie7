@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIM Course - Assignment 2: Embeddings and RAG</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">🎓 AIM Course Portfolio</div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#demo">Live Demo</a>
+                <a href="#enhancements">Enhancements</a>
+                <a href="#walkthrough">Walkthrough</a>
+                <a href="#answers">Q&A</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Assignment 2: Embeddings and RAG</h1>
+            <p class="subtitle">Building a Production-Ready Retrieval Augmented Generation System</p>
+            
+            <!-- Audio Walkthrough Player -->
+            <div class="audio-player">
+                <h3>🎧 2-Minute Audio Walkthrough</h3>
+                <audio controls>
+                    <source src="../static/audio/assignment2_walkthrough.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="audio-note">Listen to a concise explanation of the assignment and enhancements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2>📋 Assignment Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>🎯 Objective</h3>
+                    <p>Build a RAG system from scratch and enhance it with production-ready features</p>
+                </div>
+                <div class="overview-card">
+                    <h3>🛠️ Technologies</h3>
+                    <p>Python, OpenAI API, NumPy, AWS Lambda, Vector Databases</p>
+                </div>
+                <div class="overview-card">
+                    <h3>⏱️ Duration</h3>
+                    <p>Completed with 3 major enhancements beyond base requirements</p>
+                </div>
+            </div>
+
+            <!-- RAG System Diagram -->
+            <div class="diagram-container">
+                <h3>RAG System Architecture</h3>
+                <div class="rag-diagram">
+                    <div class="diagram-flow">
+                        <div class="diagram-box">📄 Documents<br>(Text/PDF)</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">✂️ Chunking<br>(1000 chars)</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">🔢 Embeddings<br>(OpenAI)</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">💾 Vector DB<br>(+ Metadata)</div>
+                    </div>
+                    <div class="diagram-flow">
+                        <div class="diagram-box">❓ User Query</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">🔍 Semantic Search<br>(Multiple Metrics)</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">📝 Context<br>(Top K)</div>
+                        <div class="arrow">→</div>
+                        <div class="diagram-box">🤖 LLM Response<br>(GPT-4-mini)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="section section-alt">
+        <div class="container">
+            <h2>🚀 Live RAG Demo</h2>
+            <p class="section-desc">Try the enhanced RAG system with your own queries</p>
+            
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <h3>Sample Queries</h3>
+                    <div id="sample-queries" class="sample-queries">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="demo-interface">
+                    <div class="query-input">
+                        <input type="text" id="query-input" placeholder="Enter your question..." />
+                        <button id="query-button" onclick="submitQuery()">Ask RAG</button>
+                    </div>
+                    
+                    <div id="loading" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Searching documents and generating response...</p>
+                    </div>
+                    
+                    <div id="results" class="results" style="display: none;">
+                        <h3>Response</h3>
+                        <div id="response-text" class="response-text"></div>
+                        
+                        <h3>Sources Used</h3>
+                        <div id="sources-list" class="sources-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhancements Section -->
+    <section id="enhancements" class="section">
+        <div class="container">
+            <h2>✨ Three Major Enhancements</h2>
+            
+            <div class="enhancement-grid">
+                <!-- Enhancement 1: PDF Support -->
+                <div class="enhancement-card">
+                    <div class="enhancement-icon">📄</div>
+                    <h3>PDF Support</h3>
+                    <p>Universal document loader that handles both text and PDF files seamlessly</p>
+                    <ul>
+                        <li>Automatic file type detection</li>
+                        <li>Page-aware extraction</li>
+                        <li>Tested with 27-page academic paper</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre><code class="language-python"># Universal loader for any document type
+loader = UniversalLoader("document.pdf")
+documents = loader.load_documents()</code></pre>
+                    </div>
+                </div>
+
+                <!-- Enhancement 2: Distance Metrics -->
+                <div class="enhancement-card">
+                    <div class="enhancement-icon">📐</div>
+                    <h3>Multiple Distance Metrics</h3>
+                    <p>8 different similarity measures for flexible retrieval optimization</p>
+                    <ul>
+                        <li>Cosine, Euclidean, Manhattan</li>
+                        <li>Dot Product, Minkowski, Chebyshev</li>
+                        <li>Correlation, Jaccard similarity</li>
+                    </ul>
+                    <div class="metric-comparison">
+                        <canvas id="metricsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Enhancement 3: Metadata -->
+                <div class="enhancement-card">
+                    <div class="enhancement-icon">🏷️</div>
+                    <h3>Metadata Support</h3>
+                    <p>Rich metadata storage and filtering for production-ready retrieval</p>
+                    <ul>
+                        <li>Source attribution</li>
+                        <li>Timestamp tracking</li>
+                        <li>Advanced filtering</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre><code class="language-python"># Filter by metadata
+results = vector_db.search_by_text(
+    query="RAG systems",
+    metadata_filter={"source_type": "pdf"}
+)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Walkthrough Section -->
+    <section id="walkthrough" class="section section-alt">
+        <div class="container">
+            <h2>🎬 Visual Walkthrough</h2>
+            <p class="section-desc">Step-by-step explanation of key implementations</p>
+            
+            <div class="walkthrough-slides">
+                <div class="slide-container">
+                    <div class="slide active" data-slide="1">
+                        <h3>1. Document Processing Pipeline</h3>
+                        <img src="../static/images/slide1_document_processing.png" alt="Document Processing">
+                        <p>We process both text and PDF files, split them into chunks, and generate embeddings using OpenAI's text-embedding-3-small model.</p>
+                    </div>
+                    
+                    <div class="slide" data-slide="2">
+                        <h3>2. Enhanced Vector Database</h3>
+                        <img src="../static/images/slide2_vector_database.png" alt="Vector Database">
+                        <p>Our enhanced database stores vectors with rich metadata, enabling filtered searches and source attribution.</p>
+                    </div>
+                    
+                    <div class="slide" data-slide="3">
+                        <h3>3. Multi-Metric Retrieval</h3>
+                        <img src="../static/images/slide3_distance_metrics.png" alt="Distance Metrics">
+                        <p>We implemented 8 distance metrics, allowing optimization for different use cases and document types.</p>
+                    </div>
+                    
+                    <div class="slide" data-slide="4">
+                        <h3>4. RAG Pipeline with Citations</h3>
+                        <img src="../static/images/slide4_rag_pipeline.png" alt="RAG Pipeline">
+                        <p>The complete pipeline retrieves relevant context and generates responses with proper source citations.</p>
+                    </div>
+                </div>
+                
+                <div class="slide-controls">
+                    <button onclick="previousSlide()">← Previous</button>
+                    <span id="slide-indicator">1 / 4</span>
+                    <button onclick="nextSlide()">Next →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section id="answers" class="section">
+        <div class="container">
+            <h2>📚 Assignment Questions & Answers</h2>
+            
+            <div class="qa-grid">
+                <div class="qa-card">
+                    <h3>❓ Question 1: Embedding Dimensions</h3>
+                    <div class="question">Can we modify the embedding dimension of text-embedding-3-small?</div>
+                    <div class="answer">
+                        <p><strong>Yes!</strong> OpenAI's text-embedding-3-small supports dimension reduction through the <code>dimensions</code> parameter.</p>
+                        <pre><code class="language-python">response = openai.Embedding.create(
+    model="text-embedding-3-small",
+    input="text",
+    dimensions=256  # Reduce from 1536 to 256
+)</code></pre>
+                        <p>OpenAI uses <strong>Matryoshka Representation Learning</strong> to achieve this, training the model so that earlier dimensions capture more important information.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <h3>❓ Question 2: Async Benefits</h3>
+                    <div class="question">What are the benefits of using async for embeddings?</div>
+                    <div class="answer">
+                        <p><strong>Parallel Processing!</strong> Async allows multiple API calls simultaneously:</p>
+                        <ul>
+                            <li>⚡ Faster processing of multiple documents</li>
+                            <li>🔄 Non-blocking I/O operations</li>
+                            <li>📈 Better resource utilization</li>
+                            <li>⏱️ Reduced total processing time</li>
+                        </ul>
+                        <p>For 100 documents: Sync might take 100 seconds, Async could take just 10-20 seconds!</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <h3>❓ Question 3: Reproducible Outputs</h3>
+                    <div class="question">How can we achieve more reproducible OpenAI outputs?</div>
+                    <div class="answer">
+                        <p><strong>Use the seed parameter!</strong> OpenAI provides deterministic generation:</p>
+                        <pre><code class="language-python">response = openai.ChatCompletion.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    seed=42,  # Deterministic output
+    temperature=0  # Reduce randomness
+)</code></pre>
+                        <p>Combined with low temperature, this gives highly consistent results.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <h3>❓ Question 4: Thoughtful Responses</h3>
+                    <div class="question">What strategy makes LLMs provide more detailed responses?</div>
+                    <div class="answer">
+                        <p><strong>Chain-of-Thought (CoT) Prompting!</strong></p>
+                        <p>Add phrases like "Let's think step by step" or "Explain your reasoning" to encourage detailed analysis:</p>
+                        <pre><code class="language-python">prompt = """Question: {question}
+Let's approach this step by step:
+1. First, identify the key concepts
+2. Then, analyze the relationships
+3. Finally, provide a comprehensive answer
+"""</code></pre>
+                        <p>This technique significantly improves response quality and reasoning transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>AIM Course Assignment 2 | Created by Todd Deshane | 2024</p>
+            <p>Built with OpenAI API, AWS Lambda, and lots of ☕</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
